@@ -1,0 +1,66 @@
+﻿  pch.cpp
+  Magazyn.cpp
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\magazyn.cpp(24): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\magazyn.cpp(19): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\magazyn.cpp(103): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\magazyn.cpp(252): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\magazyn.cpp(247): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+  Paragon.cpp
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\paragon.cpp(14): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\paragon.cpp(55): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\paragon.cpp(90): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\paragon.cpp(110): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\paragon.cpp(105): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\paragon.cpp(143): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+  Produkt.cpp
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\produkt.cpp(24): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\produkt.cpp(19): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\produkt.cpp(104): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\produkt.cpp(250): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\produkt.cpp(245): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+  Sklep.cpp
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\sklep.cpp(24): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\sklep.cpp(19): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\sklep.cpp(103): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\sklep.cpp(252): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\sklep.cpp(247): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+  Siec.cpp
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\siec.cpp(517): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\siec.cpp(551): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\siec.cpp(585): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(38): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+  c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(28): note: podczas kompilowania funkcji składowej „<Nieznany>” klasy klasa <Nieznany>
+  c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\siec.cpp(420): note: zobacz odwołanie do funkcji szablon; wystąpienie „void Stan<Sklep>::wyswietl(void)” jest kompilowane
+  c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\siec.cpp(242): note: zobacz odwołanie do klasy klasa szablon; wystąpienie „Stan<Sklep>” jest kompilowane
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(64): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+  c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(52): note: podczas kompilowania funkcji składowej „<Nieznany>” klasy klasa <Nieznany>
+  c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\siec.cpp(432): note: zobacz odwołanie do funkcji szablon; wystąpienie „void Stan<Sklep>::stworz(void)” jest kompilowane
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(142): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+  c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(135): note: podczas kompilowania funkcji składowej „<Nieznany>” klasy klasa <Nieznany>
+  c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\siec.cpp(433): note: zobacz odwołanie do funkcji szablon; wystąpienie „bool Stan<Sklep>::sprawdz(void)” jest kompilowane
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(137): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(168): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+  c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(161): note: podczas kompilowania funkcji składowej „<Nieznany>” klasy klasa <Nieznany>
+  c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(94): note: zobacz odwołanie do funkcji szablon; wystąpienie „bool Stan<Sklep>::sprawdz_id(int)” jest kompilowane
+  c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(7): note: podczas kompilowania funkcji składowej „<Nieznany>” klasy klasa <Nieznany>
+  c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\siec.cpp(242): note: zobacz odwołanie do funkcji szablon; wystąpienie „Stan<Sklep>::Stan(int,MYSQL *)” jest kompilowane
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\stan.cpp(163): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+  sprzedaz.cpp
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\sprzedaz.cpp(21): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\sprzedaz.cpp(64): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\sprzedaz.cpp(84): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\sprzedaz.cpp(101): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\sprzedaz.cpp(96): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\sprzedaz.cpp(161): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+  Stan.cpp
+  zamowienie.cpp
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\zamowienie.cpp(19): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\zamowienie.cpp(39): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\zamowienie.cpp(59): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\zamowienie.cpp(83): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\zamowienie.cpp(75): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\zamowienie.cpp(135): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\zamowienie.cpp(130): warning C4101: "wiersz": lokalna zmienna, do której nie istnieje odwołanie
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\zamowienie.cpp(206): warning C4244: "inicjowanie": konwersja z "my_ulonglong" do "int", możliwa utrata danych
+  Generowanie kodu...
+  Sklepy.vcxproj -> C:\Users\Bartosz Sobieski\Desktop\Projekt sklepy\sklepy\x64\Debug\Sklepy.exe

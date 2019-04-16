@@ -1,0 +1,2 @@
+﻿  pch.cpp
+c:\users\bartosz sobieski\desktop\projekt sklepy\sklepy\sklepy\pch.h(5): fatal error C1083: Nie można otworzyć pliku dołącz: 'mysql.h': No such file or directory

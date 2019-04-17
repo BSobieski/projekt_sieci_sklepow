@@ -1,1 +1,1 @@
-# projekt_sieci_sklepow
+# README

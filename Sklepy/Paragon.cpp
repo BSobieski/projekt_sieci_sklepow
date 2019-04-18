@@ -3,12 +3,12 @@
 #include "Produkt.h"
 
 using namespace std;
-
+//konstruktor klasy
 Paragon::Paragon(MYSQL *connect)
 {
 	this->connect = connect;
 }
-
+//stworzenie paragonu i wylosowanie mu numeru
 void Paragon::stworz(int id_skl, double koszt)
 {
 	srand(time(NULL));
@@ -18,7 +18,7 @@ void Paragon::stworz(int id_skl, double koszt)
 	this->id_sklep = id_skl;
 	this->koszt = koszt;
 }
-
+//funkcja tworzy pozycjê na paragonie i dodaje j¹ do wektora pozycji na paragonie
 void Paragon::dodaj_pozycje(int licznik_pozycji, int id_prod, string nazwa, string t, double il,double cena)
 {
 	Produkt p1(0,connect);
@@ -29,7 +29,7 @@ void Paragon::dodaj_pozycje(int licznik_pozycji, int id_prod, string nazwa, stri
 	p1.cena_brutto = cena;
 	pozycje.push_back(p1);
 }
-
+//dodaje paragon do bazy danych
 void Paragon::dodaj()
 {
 	string insert = "INSERT INTO paragon (numer,id_sklep,data,koszt) VALUES('" + this->numer + "','" + to_string(this->id_sklep) + "',NOW(),'" + to_string(this->koszt)+"');";
@@ -40,7 +40,7 @@ void Paragon::dodaj()
 	else
 		cout << "Dodanie paragonu nie powiodlo sie" << endl;
 }
-
+//funkcja pobiera id paragonu o podanym numerze
 int Paragon::wez_id(string numer)
 {
 	MYSQL_RES *idzapytania;
@@ -60,7 +60,7 @@ int Paragon::wez_id(string numer)
 	}
 	return id;
 }
-
+//funkcja wpisuje do bazy danych pozycje tworzonego paragonu
 void Paragon::aktualiuzj_pozycje()
 {
 	for (int i = 0; i < this->pozycje.size(); i++)
@@ -74,7 +74,7 @@ void Paragon::aktualiuzj_pozycje()
 			cout << "Dodanie pozycji "<< i+1 << " nie powiodlo sie" << endl;
 	}
 }
-
+//funkcja wyœwietla tablice paragon
 void Paragon::wyswietl()
 {
 	cout << "PARAGONY" << endl;
@@ -98,7 +98,7 @@ void Paragon::wyswietl()
 		cout << endl;
 	}
 }
-
+//funkcja sprawdza czy paragon o podanym id istnieje w bazie danych
 bool Paragon::sprawdz(int id_paragon)
 {
 	MYSQL_RES *idzapytania;
@@ -117,7 +117,7 @@ bool Paragon::sprawdz(int id_paragon)
 		return false;
 	}
 }
-
+//funkcja wyœwietla pozycje wybranego paragonu
 void Paragon::wyswietl_dane()
 {
 	int id;

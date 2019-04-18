@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Produkt.h"
 
-
+//konstruktor klasy
 Produkt::Produkt(int a, MYSQL *c)
 {
 	this->connect = c;
@@ -12,7 +12,7 @@ Produkt::Produkt(int a, MYSQL *c)
 	this->typ = "";
 	this->dostepnosc = false;
 }
-
+//sprawdzenie czy produkt o podanej nazwie znajduje siê w bazie danych
 bool Produkt::sprawdz()
 {
 	MYSQL_RES *idzapytania;
@@ -31,7 +31,7 @@ bool Produkt::sprawdz()
 		return false;
 	}
 }
-
+//stworzenie produktu
 void Produkt::stworz()
 {
 	cout << "Podaj nazwe: ";
@@ -81,7 +81,7 @@ void Produkt::stworz()
 		}
 	}
 }
-
+//dodanie produktu do bazy danych
 void Produkt::dodaj()
 {
 	string insert = "INSERT INTO produkt (nazwa,cena_brutto,cena_netto,typ,dostepnosc) VALUES('" + this->nazwa + "','" + to_string(this->cena_brutto) + "','" + to_string(this->cena_netto) + "','"+ this->typ+"','"+ to_string(this->dostepnosc) + "');";
@@ -92,7 +92,7 @@ void Produkt::dodaj()
 	else
 		cout << "Dodanie produktu nie powiodlo sie" << endl;
 }
-
+//wyœwietlenie tabeli produkt
 void Produkt::wyswietl()
 {
 	MYSQL_RES *idzapytania;
@@ -112,7 +112,7 @@ void Produkt::wyswietl()
 		cout << endl;
 	}
 }
-
+//usuniecie produktu o wybranym id
 void Produkt::usun()
 {
 	cout << "Podaj ID produktu, ktory chcesz usunac: ";
@@ -134,7 +134,7 @@ void Produkt::usun()
 		cout << "Nie ma produktu o podanym id" << endl;
 
 }
-
+//edycja danych o wybranym produkcie w bazie danych
 void Produkt::edytuj()
 {
 	Produkt *edytor = new Produkt(0, connect);
@@ -238,7 +238,7 @@ void Produkt::edytuj()
 	else
 		cout << "Nie ma produktu o podanym id" << endl;
 }
-
+//sprawdzenie czy produkt o podanym id znajduje siê w bazie danych
 bool Produkt::sprawdz_id(int id_produkt)
 {
 	MYSQL_RES *idzapytania;

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "Magazyn.h"
 
-
+//konstruktor klasy
 Magazyn::Magazyn(int a, MYSQL *c) : Sklep(0,c)
 {
 	this->id_magazyn = a;
@@ -12,7 +12,7 @@ Magazyn::Magazyn(int a, MYSQL *c) : Sklep(0,c)
 	this->kod_pocztowy = "";
 	this->dostepnosc=false;
 }
-
+//sprawdzenie czy w bazie danych istnieje magazyn o podanym numerze
 bool Magazyn::sprawdz()
 {
 	MYSQL_RES *idzapytania;
@@ -31,7 +31,7 @@ bool Magazyn::sprawdz()
 		return false;
 	}
 }
-
+//stworzenie magazynu
 void Magazyn::stworz()
 {
 	int flag = 1;
@@ -80,7 +80,7 @@ void Magazyn::stworz()
 		}
 	}
 }
-
+//dodanie magazynu do bazy danych
 void Magazyn::dodaj()
 {
 	string insert = "INSERT INTO magazyn (numer,miasto,adres,kod_pocztowy,dostepnosc) VALUES('"+this->numer+"','" + this->miasto + "','" + this->adres + "','" + this->kod_pocztowy + "','" + to_string(this->dostepnosc) + "');";
@@ -91,7 +91,7 @@ void Magazyn::dodaj()
 	else
 		cout << "Dodanie magazynu nie powiodlo sie" << endl;
 }
-
+//wyswietlenie tabeli magazyn
 void Magazyn::wyswietl()
 {
 	MYSQL_RES *idzapytania;
@@ -111,7 +111,7 @@ void Magazyn::wyswietl()
 		cout << endl;
 	}
 }
-
+//usuniecie magazynu o wybranym id z bazy danych
 void Magazyn::usun()
 {
 	cout << "Podaj ID magazynu, ktory chcesz usunac: ";
@@ -132,7 +132,7 @@ void Magazyn::usun()
 	else
 		cout << "Nie ma magazynu o wybranym id" << endl;
 }
-
+//edycja danych o wybranym magazynie w bazie danych
 void Magazyn::edytuj()
 {
 	Magazyn *edytor = new Magazyn(0, connect);
@@ -240,7 +240,7 @@ void Magazyn::edytuj()
 	else
 		cout << "Nie ma magazynu o wybranym id" << endl;
 }
-
+//sprawdzenie czy magazyn o podanym id znajduje sie w bazie danych
 bool Magazyn::sprawdz_id(int id_magazyn)
 {
 	MYSQL_RES *idzapytania;

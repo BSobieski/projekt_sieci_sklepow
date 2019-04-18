@@ -1,5 +1,6 @@
 # README
 ### projekt_sieci_sklepow jest projektem z przedmiotu Programowanie Obiektowe. Celem projektu była implementacja systemu do zarządania siecią sklepów spożywczych.
+
 ## Założenia
 System musi umożliwiać:
 1. Zarządzanie poszczególnymi sklepami(wstaw, usuń, edytuj)
@@ -20,7 +21,9 @@ Ponadto, w implementacji należy wykorzystać:
 1. Wykorzystać funkcje wirtualne
 1. Wykorzystać szablon klas
 1. Wykorzystać szablon funkcji
+
 ## Opis uruchomienia
 Aby poprawnie uruchomić program należy:
 1. Pobrać wszystkie pliki z repozytorium
-1. Pobrać MySQL Connector/C++ najlepiej z [oficjalnej strony MySQL](https://dev.mysql.com/downloads/connector/cpp/8.0.html)
+1. Bazę danych załączoną do projektu importujemy za pomocą programu [XAMPP](https://www.apachefriends.org/pl/index.html). System jest skonfigurowany by łączyć się z bazą danych na localhost. Aby zmienić konfiguracę należy zmienić parametry funkcji **mysql_real_connect** w pliku Siec.cpp.
+1. Pobrać MySQL Connector/C++ najlepiej z [oficjalnej strony MySQL](https://dev.mysql.com/downloads/connector/cpp/8.0.html). Następnie w środowisku Visual Studio we właściwościach projektu należy wprowadzić lokalizację folderów *include* oraz *lib*.

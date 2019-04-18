@@ -25,8 +25,22 @@ Ponadto, w implementacji należy wykorzystać:
 ## Opis uruchomienia
 Aby poprawnie uruchomić program należy:
 1. Pobrać wszystkie pliki z repozytorium
-1. Bazę danych załączoną do projektu importujemy za pomocą programu [XAMPP](https://www.apachefriends.org/pl/index.html). System jest skonfigurowany by łączyć się z bazą danych na localhost. Aby zmienić konfiguracę należy zmienić parametry funkcji **mysql_real_connect** w pliku Siec.cpp.
+1. Bazę danych załączoną do projektu importujemy za pomocą programu [XAMPP](https://www.apachefriends.org/pl/index.html). System jest skonfigurowany by łączyć się z bazą danych na localhost. Aby zmienić konfiguracę należy zmienić parametry funkcji **mysql_real_connect** w pliku **Siec.cpp**.
 1. Pobrać MySQL Connector/C++ najlepiej z [oficjalnej strony MySQL](https://dev.mysql.com/downloads/connector/cpp/8.0.html). Następnie w środowisku Visual Studio we właściwościach projektu należy wprowadzić lokalizację folderów:
     * *include* w zakładce C/C++ w polu Dodatkowe katalogii plików nagłówkowych
     * *lib* w zakładce Konsolidator w polu Dodatkowe katalogii biblioteki
 
+## Opis implementacji
+Program został napisany w języki C++. Program na początku swojego działania próbuje nawiązać połączenie z bazą danych. Jeśli uzyska on połączenie, następuje próba zalogowania. Program został podzielony na 3 funkcjonalne menu, osobno dla każdego rodzaju użytkownika.
+Dane do logowania dla poszczególnych poziomów:
+1. Poziom administratora:
+   * Login: admin
+   * Hasło: admin
+1. Poziom kierownika sklepu:
+   * Login: wl123
+   * Hasło: wl123
+1. Poziom klienta:
+   * Login: kl123
+   * Hasło: kl123
+   
+Po zalogowaniu się do konkretnego poziomu pojawia się menu z opcjami wyboru działania.

@@ -10,6 +10,7 @@
 
 using namespace std;
 
+//nagłówki funkcji
 void obsluga_sklep(Sklep *s1, MYSQL *connect);
 void obsluga_magazyn(Sklep *s1, MYSQL *connect);
 void obsluga_produkt(Produkt *p1);
@@ -25,6 +26,7 @@ void menu_kierownik(MYSQL *connect);
 
 int main()
 {
+	//utworzenie MySQL Connectora, który łączy się z bazą danych na lokalnym komputerze
 	MYSQL *connect;
 	connect = mysql_init(NULL);
 	connect = mysql_real_connect(connect, "localhost", "root", "", "sklepy", 0, NULL, 0);
@@ -42,6 +44,7 @@ int main()
 
 void menu_kierownik(MYSQL *connect)
 {
+	//utworzenie obiektów klas odpowiadających poszczególnym opcjom menu
 	Sklep *wskaznik;
 	Sklep obiekt_sklep(0, connect);
 	Magazyn obiekt_magazyn(0, connect);
@@ -60,12 +63,16 @@ void menu_kierownik(MYSQL *connect)
 		switch (opcja)
 		{
 		case 1:
+			//aktualizowanie danych o produktach
 			aktualizuj_produkty(connect);
+			//ustawienie wskaźnika na obiekt typu Sklep
 			wskaznik = &obiekt_sklep;
 			obsluga_sklep(wskaznik, connect);
 			break;
 		case 2:
+			//aktualizowanie danych o produktach
 			aktualizuj_produkty(connect);
+			//ustawienie wskaźnika na obiekt typu Magazyn
 			wskaznik = &obiekt_magazyn;
 			obsluga_magazyn(wskaznik, connect);
 			break;
@@ -94,6 +101,7 @@ void menu_kierownik(MYSQL *connect)
 
 void menu_klient(MYSQL *connect)
 {
+	//utworzenie obiektów klas odpowiadających poszczególnym opcjom menu
 	Sklep obiekt_sklep(0, connect);
 	Magazyn obiekt_magazyn(0, connect);
 	Produkt obiekt_produkt(0, connect);
@@ -147,6 +155,7 @@ void menu_klient(MYSQL *connect)
 
 void logowanie(MYSQL *connect)
 {
+	//funkcja z wyborem trybu logowania i wywołaniem odpowiedniej funkcji menu
 	int flag = 1;
 	string login,haslo;
 	while (flag)
@@ -175,6 +184,7 @@ void logowanie(MYSQL *connect)
 
 void menu_admin(MYSQL *connect)
 {
+	//utworzenie obiektów klas odpowiadających poszczególnym opcjom menu
 	Sklep *wskaznik;
 	Sklep obiekt_sklep(0, connect);
 	Magazyn obiekt_magazyn(0, connect);
@@ -196,12 +206,16 @@ void menu_admin(MYSQL *connect)
 		switch (opcja)
 		{
 		case 1:
+			//aktualizowanie danych o produktach
 			aktualizuj_produkty(connect);
+			//ustawienie wskaźnika na obiekt typu Sklep
 			wskaznik = &obiekt_sklep;
 			obsluga_sklep(wskaznik, connect);
 			break;
 		case 2:
+			//aktualizowanie danych o produktach w sklepach
 			aktualizuj_produkty(connect);
+			//ustawienie wskaźnika na obiekt typu Magazyn
 			wskaznik = &obiekt_magazyn;
 			obsluga_magazyn(wskaznik, connect);
 			break;
@@ -239,6 +253,7 @@ void menu_admin(MYSQL *connect)
 
 void obsluga_sklep(Sklep *s1,MYSQL *connect)
 {
+	//utworzenie obiektu klasy szablonowej Stan
 	Stan<Sklep> *stan_sklep = new Stan<Sklep>(0, connect);
 	int id_celu;
 	int opcjain = -1;
@@ -262,9 +277,9 @@ void obsluga_sklep(Sklep *s1,MYSQL *connect)
 		{
 		case 1:
 			cin.ignore();
-			s1->stworz();
-			if (s1->sprawdz())
-				s1->dodaj();
+			s1->stworz(); //stworzenie sklepu
+			if (s1->sprawdz()) //sprzadzenie czy sklep o podanym numerze istnieje
+				s1->dodaj(); //dodanie sklepu do bazy danych
 			else
 				cout << "Podany sklep istnieje w bazie danych" << endl;
 			system("PAUSE");
@@ -280,7 +295,7 @@ void obsluga_sklep(Sklep *s1,MYSQL *connect)
 		case 4:
 			cout << "Podaj id sklepu: ";
 			cin >> id_celu;
-			if(s1->sprawdz_id(id_celu))
+			if(s1->sprawdz_id(id_celu)) //sprawdzenie czy sklep o podanym id istnieje
 				obsluga_stan_sklep(stan_sklep, id_celu);
 			else
 			{
@@ -300,6 +315,7 @@ void obsluga_sklep(Sklep *s1,MYSQL *connect)
 
 void obsluga_magazyn(Sklep *s1, MYSQL *connect)
 {
+	//utworzenie obiektu klasy szablonowej Stan
 	Stan<Magazyn> *stan_magazyn = new Stan<Magazyn>(0, connect);
 	int id_celu;
 	int opcjain = -1;
@@ -323,9 +339,9 @@ void obsluga_magazyn(Sklep *s1, MYSQL *connect)
 		{
 		case 1:
 			cin.ignore();
-			s1->stworz();
-			if (s1->sprawdz())
-				s1->dodaj();
+			s1->stworz(); //stworzenie magazynu
+			if (s1->sprawdz()) //sprawdzenie czy magazyn o podanym numerze istnieje
+				s1->dodaj(); //dodanie magazynu
 			else
 				cout << "Podany magazyn istnieje w bazie danych" << endl;
 			system("PAUSE");
@@ -341,7 +357,7 @@ void obsluga_magazyn(Sklep *s1, MYSQL *connect)
 		case 4:
 			cout << "Podaj id magazynu: ";
 			cin >> id_celu;
-			if(s1->sprawdz_id(id_celu))
+			if(s1->sprawdz_id(id_celu)) //sprawdzenie czy magazyn o podanym id istnieje
 				obsluga_stan_magazyn(stan_magazyn, id_celu);
 			else
 			{
@@ -381,9 +397,9 @@ void obsluga_produkt(Produkt *p1)
 		{
 		case 1:
 			cin.ignore();
-			p1->stworz();
-			if (p1->sprawdz())
-				p1->dodaj();
+			p1->stworz(); //stworzenie produktu
+			if (p1->sprawdz()) //sprawdzenie czy produkt o podanej nazwie istnieje
+				p1->dodaj(); //dodanie produktu do bazy danych
 			else
 				cout << "Podany produkt istnieje w bazie danych" << endl;
 			system("PAUSE");
@@ -408,6 +424,7 @@ void obsluga_produkt(Produkt *p1)
 
 void obsluga_stan_sklep(Stan<Sklep> *stan_sklep, int id_cel)
 {	
+	//nadanie wartości zmiennej celu na id ogslugiwanego sklepu
 	stan_sklep->ustaw_cel(id_cel);
 	int opcjain = -1;
 	while (opcjain != 0)
@@ -429,9 +446,9 @@ void obsluga_stan_sklep(Stan<Sklep> *stan_sklep, int id_cel)
 		{
 		case 1:
 			cin.ignore();
-			stan_sklep->stworz();
-			if (stan_sklep->sprawdz())
-				stan_sklep->dodaj();
+			stan_sklep->stworz(); //utworzenie pozycji na stanie sklepu
+			if (stan_sklep->sprawdz()) //sprawdzenie czy podany produkt już jest na stanie sklepu
+				stan_sklep->dodaj(); //dodanie stanu do bazy danych
 			else
 				cout << "Podany produkt istnieje juz na stanie sklepu" << endl;
 			system("PAUSE");
@@ -456,6 +473,7 @@ void obsluga_stan_sklep(Stan<Sklep> *stan_sklep, int id_cel)
 
 void obsluga_stan_magazyn(Stan<Magazyn> *stan_magazyn, int id_cel)
 {
+	//nadanie wartości zmiennej celu na id ogslugiwanego sklepu
 	stan_magazyn->ustaw_cel(id_cel);
 	int opcjain = -1;
 	while (opcjain != 0)
@@ -477,9 +495,9 @@ void obsluga_stan_magazyn(Stan<Magazyn> *stan_magazyn, int id_cel)
 		{
 		case 1:
 			cin.ignore();
-			stan_magazyn->stworz();
-			if (stan_magazyn->sprawdz())
-				stan_magazyn->dodaj();
+			stan_magazyn->stworz(); //utworzenie pozycji na stanie sklepu
+			if (stan_magazyn->sprawdz()) //sprawdzenie czy podany produkt już jest na stanie sklepu
+				stan_magazyn->dodaj(); //dodanie stanu do bazy danych
 			else
 				cout << "Podany produkt istnieje juz na stanie sklepu" << endl;
 			system("PAUSE");
@@ -511,6 +529,7 @@ void raporty_magazynow(MYSQL *connect)
 	MYSQL_RES *idzapytania;
 	MYSQL_ROW wiersz;
 
+	//pobranie danych z bazy
 	mysql_query(connect, "SELECT id_magazyn,id_produkt,nazwa,ilosc FROM stan WHERE id_magazyn IS NOT NULL;");
 
 	idzapytania = mysql_store_result(connect);
@@ -523,6 +542,7 @@ void raporty_magazynow(MYSQL *connect)
 		id_produkt = stoi(wiersz[1]);
 		nazwa = wiersz[2];
 		ilosc = stoi(wiersz[3]);
+		//sprawdzenie ilości produktu w magazynie
 		if (ilosc > 0 && ilosc < 50)
 		{
 			cout << "Magazyn id " << id_magazyn << ": Produkt " << id_produkt << " o nazwie " << nazwa << " - zapaz w magazynie na wykonczeniu." << endl;
@@ -545,6 +565,7 @@ void raporty_sklepow(MYSQL *connect)
 	MYSQL_RES *idzapytania;
 	MYSQL_ROW wiersz;
 
+	//pobranie danych z bazy
 	mysql_query(connect, "SELECT id_sklep,id_produkt,nazwa,ilosc FROM stan WHERE id_sklep IS NOT NULL;");
 
 	idzapytania = mysql_store_result(connect);
@@ -557,6 +578,7 @@ void raporty_sklepow(MYSQL *connect)
 		id_produkt = stoi(wiersz[1]);
 		nazwa = wiersz[2];
 		ilosc = stoi(wiersz[3]);
+		//sprawdzenie ilości produktów w sklepie
 		if (ilosc == 0)
 		{
 			cout << "Sklep id " << id_sklep << ": Produkt " << id_produkt << " o nazwie " << nazwa << " - brak produktu w sklepie." << endl;
@@ -567,6 +589,7 @@ void raporty_sklepow(MYSQL *connect)
 
 void aktualizuj_produkty(MYSQL *connect)
 {
+	//funkcja pobiera dane o produktach z tabeli produkt a następnie aktualizuje dane w tabeli stan
 	MYSQL_RES *idzapytania;
 	MYSQL_ROW wiersz;
 	int id_produkt;

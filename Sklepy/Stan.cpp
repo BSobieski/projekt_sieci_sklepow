@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "Stan.h"
 #include "Produkt.h"
+//W tej klasie wszystkie metody s¹ metodami-szablonami, poniewa¿ bêd¹ one zale¿a³y od wartoœci wskaŸnik
 
+//konstruktor klasy
 template <class Klasa>
 Stan<Klasa>::Stan(int a, MYSQL *c)
 {
@@ -16,13 +18,13 @@ Stan<Klasa>::Stan(int a, MYSQL *c)
 	this->ilosc = 0;
 	this->dostepnosc = false;
 }
-
+//funkcja wyœwietla produkty
 template <class Klasa>
 void Stan<Klasa>::wyswietl_produkt()
 {
 	this->produkt->wyswietl();
 }
-
+//funkcja wyswietlaj¹ca stany konkretnej klasy
 template <class Klasa>
 void Stan<Klasa>::wyswietl()
 {
@@ -46,7 +48,7 @@ void Stan<Klasa>::wyswietl()
 		cout << endl;
 	}
 }
-
+//funkcja tworz¹ca stan
 template <class Klasa>
 void Stan<Klasa>::stworz()
 {
@@ -73,7 +75,7 @@ void Stan<Klasa>::stworz()
 	cout << "Podaj ilosc produktu: ";
 	cin >> this->ilosc;
 }
-
+//funkcja dodaj¹ca stan do bazy danych
 template <class Klasa>
 void Stan<Klasa>::dodaj()
 {
@@ -85,7 +87,7 @@ void Stan<Klasa>::dodaj()
 	else
 		cout << "Aktualizacja stanu nie powiodla sie" << endl;
 }
-
+//funkcja usuwaj¹ca stan z bazy danych
 template <class Klasa>
 void Stan<Klasa>::usun()
 {
@@ -108,7 +110,7 @@ void Stan<Klasa>::usun()
 		cout << "Nie ma produktu o podanym id" << endl;
 
 }
-
+//funkcja edytuj¹ca iloœæ produktów w stanie
 template <class Klasa>
 void Stan<Klasa>::edytuj_ilosc()
 {
@@ -129,7 +131,7 @@ void Stan<Klasa>::edytuj_ilosc()
 	else
 		cout << "Nie ma produktu o podanym id" << endl;
 }
-
+//funkcja sprawdzaj¹ca czy stan z podanym produktem istnieje w bazie danych
 template <class Klasa>
 bool Stan<Klasa>::sprawdz()
 {
@@ -149,13 +151,13 @@ bool Stan<Klasa>::sprawdz()
 		return false;
 	}
 }
-
+//funkcja ustawiaj¹ca zmienn¹ id_cel bêd¹c¹ id sklepu/magazynu
 template <class Klasa>
 void Stan<Klasa>::ustaw_cel(int a)
 {
 	this->id_cel = a;
 }
-
+//funkcja sprawdzaj¹ca czy produkt o podanym id istnieje w tabeli produktów
 template <class Klasa>
 bool Stan<Klasa>::sprawdz_id(int id_produkt)
 {

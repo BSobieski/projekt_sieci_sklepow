@@ -26,4 +26,7 @@ Ponadto, w implementacji należy wykorzystać:
 Aby poprawnie uruchomić program należy:
 1. Pobrać wszystkie pliki z repozytorium
 1. Bazę danych załączoną do projektu importujemy za pomocą programu [XAMPP](https://www.apachefriends.org/pl/index.html). System jest skonfigurowany by łączyć się z bazą danych na localhost. Aby zmienić konfiguracę należy zmienić parametry funkcji **mysql_real_connect** w pliku Siec.cpp.
-1. Pobrać MySQL Connector/C++ najlepiej z [oficjalnej strony MySQL](https://dev.mysql.com/downloads/connector/cpp/8.0.html). Następnie w środowisku Visual Studio we właściwościach projektu należy wprowadzić lokalizację folderów *include* oraz *lib*.
+1. Pobrać MySQL Connector/C++ najlepiej z [oficjalnej strony MySQL](https://dev.mysql.com/downloads/connector/cpp/8.0.html). Następnie w środowisku Visual Studio we właściwościach projektu należy wprowadzić lokalizację folderów:
+    * *include* w zakładce C/C++ w polu Dodatkowe katalogii plików nagłówkowych
+    * *lib* w zakładce Konsolidator w polu Dodatkowe katalogii biblioteki
+

@@ -2,7 +2,7 @@
 #include "Sklep.h"
 #include "Magazyn.h"
 
-
+//konstruktor klasy
 Sklep::Sklep(int a, MYSQL *c)
 {
 	this->connect = c;
@@ -12,7 +12,7 @@ Sklep::Sklep(int a, MYSQL *c)
 	this->adres = "";
 	this->dostepnosc = false;
 }
-
+//funkcja sprawdzaj¹ca czy sklep o podanym numerze istnieje w bazie danych
 bool Sklep::sprawdz()
 {
 	MYSQL_RES *idzapytania;
@@ -31,7 +31,7 @@ bool Sklep::sprawdz()
 		return false;
 	}
 }
-
+//funkcja wtorz¹ca sklep
 void Sklep::stworz()
 {
 	int flag = 1;
@@ -80,7 +80,7 @@ void Sklep::stworz()
 		}
 	}
 }
-
+//funkcja dodaj¹ca sklep do bazy danych
 void Sklep::dodaj()
 {
 	string insert = "INSERT INTO sklep (numer,miasto,adres,kod_pocztowy,dostepnosc) VALUES('" + this->numer + "','" + this->miasto + "','" + this->adres + "','" + this->kod_pocztowy + "','" + to_string(this->dostepnosc) + "');";
@@ -91,7 +91,7 @@ void Sklep::dodaj()
 	else
 		cout << "Dodanie sklepu nie powiodlo sie" << endl;
 }
-
+//funkcja wyœwietlaj¹ca tabelê sklep
 void Sklep::wyswietl()
 {
 	MYSQL_RES *idzapytania;
@@ -111,7 +111,7 @@ void Sklep::wyswietl()
 		cout << endl;
 	}
 }
-
+//funkcja usuwaj¹ca sklep po id
 void Sklep::usun()
 {
 	cout << "Podaj ID sklepu, ktory chcesz usunac: ";
@@ -132,7 +132,7 @@ void Sklep::usun()
 	else
 		cout << "Nie ma sklepu o wybranym id" << endl;
 }
-
+//funkcja edytuj¹ca dane o wybranym sklepie
 void Sklep::edytuj()
 {
 	Sklep *edytor = new Sklep(0, connect);
@@ -240,7 +240,7 @@ void Sklep::edytuj()
 	else
 		cout << "Nie ma sklpu o podanym id" << endl;
 }
-
+//funkcja sprawdzaj¹ca czy sklep o podanym id istnieje w bazie danych
 bool Sklep::sprawdz_id(int id_sklep)
 {
 	MYSQL_RES *idzapytania;

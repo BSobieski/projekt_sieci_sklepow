@@ -4,8 +4,10 @@
 #include "Magazyn.h"
 #include "Stan.h"
 
-using namespace std;
+//plik zawiera funkcje pomocnicze przy realizacji zamówienia
 
+using namespace std;
+//funkcja zwraca iloœæ konkretnego produktu na stanie konkretnego magazynu
 double podaj_ilosc(MYSQL *connect, int id_magazyn, int id_produkt)
 {
 	MYSQL_RES *idzapytania;
@@ -24,7 +26,7 @@ double podaj_ilosc(MYSQL *connect, int id_magazyn, int id_produkt)
 	}
 	return iilosc;
 }
-
+//funkcja sprawdza dostêpnoœæ magazynu
 bool sprawdz_magazyn(MYSQL *connect, int id_magazyn)
 {
 	MYSQL_RES *idzapytania;
@@ -44,7 +46,7 @@ bool sprawdz_magazyn(MYSQL *connect, int id_magazyn)
 	}
 	return warunek;
 }
-
+//funkcja wyœwietla magazyny które zawieraj¹ dany produkt
 int wyswietl_zawierajace(MYSQL *connect, int id_produkt)
 {
 	MYSQL_RES *idzapytania;
@@ -68,7 +70,7 @@ int wyswietl_zawierajace(MYSQL *connect, int id_produkt)
 	}
 	return num_wierszy;
 }
-
+//funkcja sprawdza istnienie stanu sklepu z konkretnym produktem
 bool sprawdz_stan(MYSQL *connect, int id_produkt, int id_sklep)
 {
 	MYSQL_RES *idzapytania;
@@ -90,7 +92,7 @@ bool sprawdz_stan(MYSQL *connect, int id_produkt, int id_sklep)
 		return false;
 	}
 }
-
+//funkcja dodaje stan sklepu do bazy danych
 void dodaj_stan(MYSQL *connect, int id_sklep, int id_produkt, string typ, string nazwa, bool dostepnosc)
 {
 	string insert = "INSERT INTO stan (id_sklep,id_produkt,nazwa,typ,dostepnosc,ilosc) VALUES('" + to_string(id_sklep) + "','" + to_string(id_produkt) + "','" + nazwa + "','" + typ + "','" + to_string(dostepnosc) + "','0');";
@@ -101,7 +103,7 @@ void dodaj_stan(MYSQL *connect, int id_sklep, int id_produkt, string typ, string
 	else
 		cout << "Dodanie wybranego produktu do stanu sklepu nie powiodlo sie." << endl;
 }
-
+//funkcja aktualizuje stan magazynu
 void aktualizuj_stan_magazyn(MYSQL *connect, double ilosc, double ilosc_pobrana, int id_magazyn, int id_produkt)
 {
 	string str_update = "UPDATE stan SET ilosc ='" + to_string(ilosc_pobrana - ilosc) + "'WHERE id_magazyn=" + to_string(id_magazyn) + " AND id_produkt = '" + to_string(id_produkt) + "';";
@@ -112,7 +114,7 @@ void aktualizuj_stan_magazyn(MYSQL *connect, double ilosc, double ilosc_pobrana,
 	else
 		cout << "Edycja stanu magazynu nie powiodla sie" << endl;
 }
-
+//funkcja aktualizuje stan sklepu
 void aktualizuj_stan_sklep(MYSQL *connect, double ilosc, int id_sklep, int id_produkt)
 {
 	string str_update = "UPDATE stan SET ilosc ='" + to_string(ilosc + podaj_ilosc(connect, id_sklep, id_produkt)) + "'WHERE id_sklep=" + to_string(id_sklep) + " AND id_produkt='" + to_string(id_produkt) + "';";
@@ -123,7 +125,7 @@ void aktualizuj_stan_sklep(MYSQL *connect, double ilosc, int id_sklep, int id_pr
 	else
 		cout << "Edycja stanu sklepu nie powiodla sie" << endl;
 }
-
+//funkcja sprawdza czy stan magazynu z konkretnym produktem istnieje
 bool sprawdz_id(MYSQL *connect, int id_magazyn, int id_produkt)
 {
 	MYSQL_RES *idzapytania;
@@ -142,7 +144,7 @@ bool sprawdz_id(MYSQL *connect, int id_magazyn, int id_produkt)
 		return true;
 	}
 }
-
+//funkcja szablonowa do podawania iloœci produktu
 template <typename typ>
 double pod_ilosc()
 {
@@ -158,7 +160,7 @@ double pod_ilosc()
 	}
 	return ilosc;
 }
-
+//funkcja realizuj¹ca zamówienie
 void zamowienie(MYSQL *connect)
 {
 	system("cls");

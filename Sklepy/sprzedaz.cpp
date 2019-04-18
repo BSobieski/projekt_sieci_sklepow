@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//funlcja zwraca obród wybranego sklepu
 double podaj_obrot(MYSQL *connect, int id_sklep)
 {
 	MYSQL_RES *idzapytania;
@@ -28,7 +29,7 @@ double podaj_obrot(MYSQL *connect, int id_sklep)
 	}
 	return 0;
 }
-
+//funkcja aktualizuje iloœæ pozycji stanu sklepu
 void aktualizuj_stan(MYSQL *connect, int id_sklep, int id_produkt, double ilosc_kupiona, double ilosc)
 {
 	string str_update = "UPDATE stan SET ilosc ='" + to_string(ilosc - ilosc_kupiona) + "'WHERE id_sklep=" + to_string(id_sklep) + " AND id_produkt = '" + to_string(id_produkt) + "';";
@@ -39,7 +40,7 @@ void aktualizuj_stan(MYSQL *connect, int id_sklep, int id_produkt, double ilosc_
 	else
 		cout << "Edycja stanu sklepu nie powiodla sie" << endl;
 }
-
+//funkcja aktualizuje obrót sklepu
 void aktualizuj_sklep(MYSQL *connect, int id_sklep, double koszt)
 {
 	string str_update = "UPDATE sklep SET obrot ='" + to_string(koszt + podaj_obrot(connect, id_sklep)) + "'WHERE id_sklep=" + to_string(id_sklep) + ";";
@@ -50,7 +51,7 @@ void aktualizuj_sklep(MYSQL *connect, int id_sklep, double koszt)
 	else
 		cout << "Edycja obrotu sklepu nie powiodla sie" << endl;
 }
-
+//funkcja zwraca cenê wybranego produktu
 double podaj_cene(MYSQL *connect, int id_produkt)
 {
 	MYSQL_RES *idzapytania;
@@ -69,7 +70,7 @@ double podaj_cene(MYSQL *connect, int id_produkt)
 	}
 	return cena;
 }
-
+//funkcja sprawdzaj¹ca czy sklep o podanym id istnieje
 bool sprawdz_sklep(MYSQL *connect, int id_sklep)
 {
 	MYSQL_RES *idzapytania;
@@ -89,7 +90,7 @@ bool sprawdz_sklep(MYSQL *connect, int id_sklep)
 	}
 	return warunek;
 }
-
+//funkcja sprawdza czy stan sklepu z konkretnym produktem istnieje
 bool sprawdz_id_sklep(MYSQL *connect, int id_sklep, int id_produkt)
 {
 	MYSQL_RES *idzapytania;
@@ -108,7 +109,7 @@ bool sprawdz_id_sklep(MYSQL *connect, int id_sklep, int id_produkt)
 		return true;
 	}
 }
-
+//funkcja szablonowa do podawania iloœci produktu
 template <typename typ>
 double pod_ilosc()
 {
@@ -124,7 +125,7 @@ double pod_ilosc()
 	}
 	return ilosc;
 }
-
+//funkcja realizuj¹ca sprzeda¿
 void sprzedaz(MYSQL *connect)
 {
 	system("cls");

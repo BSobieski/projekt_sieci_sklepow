@@ -43,4 +43,8 @@ Dane do logowania dla poszczególnych poziomów:
    * Login: kl123
    * Hasło: kl123
    
-Po zalogowaniu się do konkretnego poziomu pojawia się menu z opcjami wyboru działania.
+Po zalogowaniu się do konkretnego poziomu pojawia się menu z opcjami wyboru działania. Zależnie od poziomu, menu różni się dostępnością opcji, na przykład edycja sklepów oraz stanu produktów w sklepie nie jest dostępna dla użytkownika z poziomu klienta.
+
+Program jest napisany obiektowo. Każda klasa zawiera się w oddzielnym pliku. Klasy odpowiedzlane są za obsługę konkretnych tabel. Poprzez wywoływanie odpowiednich metod zostają wygenerowane polecenia w język SQL które są przesyłane do bazy danych. Za ich pomocą w tabelach są dodawane,usuwane lub edytowane wiersze. Dodatkowo dołączone zostały pliki zamowienie.cpp oraz sprzedaz.cpp zawierające zestawy funkcji odpowiedzialne odpowiedznio za zamawianie towarów do sklepu oraz kupno towarów ze sklepu.
+
+Program został zabespieczony przed błędami. Jeśli użytkownik wykona czynność, która jest niedozwolona w założeniach programu i/lub logice bazy danych, zostanie on o tym poinformowany stosownym komunikatem.
